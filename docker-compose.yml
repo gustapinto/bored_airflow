@@ -1,0 +1,28 @@
+version: "3.6"
+
+services:
+  python:
+    build: .
+    tty: true
+    working_dir: /boredairflow
+    volumes:
+      - ./:/boredairflow:Z
+    depends_on:
+      - postgres
+    env_file:
+      - .env
+    networks:
+      - backend
+
+  postgres:
+    image: postgres:14.1-alpine
+    restart: always
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    networks:
+      - backend
+
+networks:
+  backend:
