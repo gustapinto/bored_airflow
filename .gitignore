@@ -130,3 +130,7 @@ dmypy.json
 
 # Airflow
 logs/
+airflow-*.log
+airflow-*.out
+airflow-*.pid
+airflow-*.err
